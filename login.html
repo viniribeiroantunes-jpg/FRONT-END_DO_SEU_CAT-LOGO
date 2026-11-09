@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: avisa ao navegador que esta página é HTML5. Sempre a 1ª linha. -->
+<html lang="pt-br">
+<!-- lang="pt-br": o conteúdo está em português. -->
+<head>
+    <!-- HEAD: configurações da página. Nada daqui aparece dentro da página. -->
+    <meta charset="UTF-8">
+    <!-- UTF-8: permite usar acentos (ç, ã, é). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: faz a página se adaptar à tela do celular. -->
+    <title>Login — Sistema Musical</title>
+    <!-- title: o nome que aparece na aba do navegador. -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🎵</text></svg>">
+    <!-- rel="icon": define o ícone da aba do navegador. -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Conecta o HTML ao arquivo CSS. -->
+</head>
+<!-- A classe login-page é usada no CSS para centralizar o cartão. -->
+<body class="login-page">
+    <!-- login-card: caixa que guarda todo o conteúdo do login. -->
+    <div class="login-card">
+        <!-- login-header: título e subtítulo. -->
+        <div class="login-header">
+            <h1>🎵 Sistema Musical</h1>
+            <p>Entre com suas credenciais</p>
+        </div>
+        <!-- Formulário de login.
+             method="post": envia os dados no corpo da requisição.
+             action="#": ainda não envia os dados para um PHP. -->
+        <form method="post" action="#">
+            <!-- form-group: agrupa o rótulo e o campo de usuário. -->
+            <div class="form-group">
+                <label for="usuario">Usuário</label>
+                <input
+                    type="text"
+                    id="usuario"
+                    name="usuario"
+                    required
+                    autocomplete="username"
+                    placeholder="Seu usuário"
+                >
+                <!-- type="text": campo de texto.
+                     id: identifica o campo.
+                     name: nome do dado recebido pelo PHP.
+                     required: impede o envio vazio pelo navegador.
+                     autocomplete: permite sugerir o usuário salvo.
+                     placeholder: mostra uma dica dentro do campo. -->
+            </div>
+            <!-- Campo de senha. -->
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    required
+                    autocomplete="current-password"
+                    placeholder="Sua senha"
+                >
+                <!-- type="password": oculta os caracteres digitados. -->
+            </div>
+            <!-- Botão para enviar o formulário. -->
+            <button type="submit" class="btn-primary">
+                Entrar
+            </button>
+        </form>
+        <!-- login-hint: exibe as credenciais de teste. -->
+        <div class="login-hint">
+            <strong>Credenciais de teste:</strong><br>
+            Usuário: <code>admin</code>  · 
+            Senha: <code>123</code>
+            <!--  : espaço que não quebra a linha. -->
+        </div>
+    </div>
+</body>
+</html>

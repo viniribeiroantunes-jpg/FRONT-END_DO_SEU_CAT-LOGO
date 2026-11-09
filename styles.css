@@ -1,0 +1,710 @@
+
+/* =============================================
+   SISTEMA MUSICAL: Folha de Estilos Principal
+   =============================================
+   Um único arquivo para todas as telas.
+   Aula 1: base, formulário, botões, login e menu
+   Aula 2: títulos, barra de título, cores dos botões,
+           tabelas e filtros
+   Aula 3: formulário em grade, campo de foto e
+           botão de músicas
+   Aula 4: url e textarea, campo "full", utilitários
+           e celular
+   ============================================= */
+
+
+/* -----------------------------------------------
+   1. VARIÁVEIS E RESET [AULA 1]
+   ----------------------------------------------- */
+
+:root {
+    --primary: #2c3e50;
+    --blue: #3498db;
+    --blue-dark: #2980b9;
+    --green: #27ae60;
+    --red: #e74c3c;
+    --red-dark: #c0392b;
+    --bg: #f0f2f5;
+    --surface: #ffffff;
+    --border: #dde1e7;
+    --text: #2c3e50;
+    --text-muted: #6c757d;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, .08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, .10);
+    --radius: 8px;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Reset: remove as margens e os espaçamentos padrão. */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página. */
+body {
+    font-family: var(--font);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+/* -----------------------------------------------
+   2. FORMULÁRIOS [AULA 1]
+   ----------------------------------------------- */
+
+form {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
+/* Espaçamento entre os grupos do formulário. */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+/* Rótulos dos campos. */
+label {
+    display: block;
+    margin-bottom: .4rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Campos de texto, senha, área de texto e seleção. */
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: .65rem .85rem;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: .95rem;
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--surface);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+/* Destaque ao selecionar um campo. */
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, .15);
+}
+
+
+/* -----------------------------------------------
+   3. BOTÕES [AULAS 1, 2 E 3]
+   ----------------------------------------------- */
+
+.btn-primary,
+.btn-edit,
+.btn-delete,
+.btn-music,
+.btn-back,
+.btn-youtube {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .35rem;
+    padding: .55rem 1.1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: .875rem;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color .2s, transform .15s, box-shadow .2s;
+    line-height: 1.4;
+}
+
+/* Botão principal. */
+.btn-primary {
+    padding: .65rem 1.4rem;
+    font-size: .95rem;
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Botões Voltar e Sair. */
+.btn-back {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-back:hover {
+    background: #1a252f;
+}
+
+/* Botões Editar e Excluir. */
+.btn-edit {
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background: var(--blue-dark);
+}
+
+.btn-delete {
+    background: var(--red);
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background: var(--red-dark);
+}
+
+/* Botão do YouTube. */
+.btn-youtube {
+    background: #ff0000;
+    color: #fff;
+}
+
+.btn-youtube:hover {
+    background: #cc0000;
+}
+
+
+/* -----------------------------------------------
+   4. MENSAGENS [AULA 4]
+   ----------------------------------------------- */
+
+.message {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .85rem 1.1rem;
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+/* -----------------------------------------------
+   5. TELA DE LOGIN [AULA 1]
+   ----------------------------------------------- */
+
+/* Centraliza o cartão de login na tela. */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg);
+    padding: 1rem;
+}
+
+/* Cartão principal do login. */
+.login-card {
+    background: var(--surface);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Remove o fundo e a sombra do formulário dentro do cartão. */
+.login-card form {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Cabeçalho do login. */
+.login-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.login-header h1 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: .25rem;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    font-size: .9rem;
+}
+
+/* Botão de login ocupa toda a largura. */
+.login-card .btn-primary {
+    width: 100%;
+    margin-top: .25rem;
+}
+
+/* Caixa com as credenciais de teste. */
+.login-hint {
+    margin-top: 1.25rem;
+    padding: .75rem 1rem;
+    background: var(--bg);
+    border-radius: 6px;
+    text-align: center;
+    font-size: .82rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+.login-hint code {
+    background: #e9ecef;
+    padding: .1rem .35rem;
+    border-radius: 3px;
+    font-size: .8rem;
+}
+
+
+/* -----------------------------------------------
+   6. LAYOUT BASE [AULA 1]
+   ----------------------------------------------- */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 32px;
+}
+
+
+/* -----------------------------------------------
+   7. MENU PRINCIPAL [AULA 1]
+   ----------------------------------------------- */
+
+/* Posiciona o botão Sair à direita. */
+.topbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+/* Cabeçalho das páginas. */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: .35rem;
+}
+
+.page-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Grade dos cartões do menu. */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Cartões do menu. */
+.menu-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transition: transform .2s, box-shadow .2s;
+    border: 1px solid var(--border);
+}
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .13);
+}
+
+/* Faz o link ocupar todo o cartão. */
+.menu-card a {
+    display: block;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
+}
+
+/* Ícone do cartão. */
+.menu-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: .75rem;
+}
+
+/* Título do cartão. */
+.menu-card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: .35rem;
+}
+
+/* Descrição do cartão. */
+.menu-card-desc {
+    font-size: .85rem;
+    color: var(--text-muted);
+}
+
+
+/* -----------------------------------------------
+   8. TIPOGRAFIA [AULA 2]
+   ----------------------------------------------- */
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: .75rem;
+    border-bottom: 2px solid var(--border);
+}
+
+
+/* -----------------------------------------------
+   9. CABEÇALHO DE PÁGINA COM AÇÕES [AULA 2]
+   ----------------------------------------------- */
+
+.page-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: .75rem;
+    border-bottom: 2px solid var(--border);
+    flex-wrap: wrap;
+}
+
+/* Remove a linha inferior do h2 dentro da barra. */
+.page-header-bar h2 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Organização dos botões do cabeçalho. */
+.page-header-bar .header-actions {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+/* -----------------------------------------------
+   10. FORMULÁRIO EM GRADE [AULAS 3 E 4]
+   ----------------------------------------------- */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+/* Campo full ocupa as duas colunas da grade. */
+.form-grid .form-group.full {
+    grid-column: 1 / -1;
+}
+
+/* Campos numéricos, URL e data. */
+input[type="number"],
+input[type="url"],
+input[type="date"] {
+    width: 100%;
+    padding: .65rem .85rem;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: .95rem;
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--surface);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+/* Caixa da letra da música. */
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* -----------------------------------------------
+   11. TABELAS [AULA 2]
+   ----------------------------------------------- */
+
+/* Caixa que envolve a tabela. */
+.table-container {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+/* Junta as bordas das células. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Espaçamento e alinhamento das células. */
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Cabeçalho escuro com letras brancas. */
+th {
+    background: var(--primary);
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Remove a borda da última linha. */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Clareia a linha quando o mouse passa sobre ela. */
+tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Larguras das colunas menores. */
+.col-foto,
+.col-capa {
+    width: 90px;
+    white-space: nowrap;
+}
+
+.col-youtube {
+    width: 110px;
+    white-space: nowrap;
+}
+
+.col-acoes {
+    white-space: nowrap;
+}
+
+/* Botões Editar e Excluir lado a lado. */
+.action-buttons {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+/* Miniatura da capa ou foto. */
+.table-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+/* Espaço reservado para imagens inexistentes. */
+.no-image {
+    width: 60px;
+    height: 60px;
+    background: var(--bg);
+    border: 1.5px dashed var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Célula exibida quando nenhuma música é encontrada. */
+td.empty-cell {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+    font-size: .95rem;
+}
+
+
+/* -----------------------------------------------
+   12. FILTROS [AULA 2]
+   ----------------------------------------------- */
+
+.filters {
+    background: var(--surface);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+/* Filtros organizados lado a lado. */
+.filter-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+/* Cada filtro ocupa uma parte do espaço disponível. */
+.filter-item {
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Rótulos dos filtros. */
+.filter-item label {
+    font-size: .82rem;
+}
+
+/* Área dos botões de filtro. */
+.filter-actions {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+}
+
+
+/* -----------------------------------------------
+   13. UTILITÁRIOS [AULA 4]
+   ----------------------------------------------- */
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-size: .9rem;
+}
+
+.mt-1 { margin-top: .5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+.mb-1 { margin-bottom: .5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+
+
+/* -----------------------------------------------
+   14. RESPONSIVIDADE [AULA 4]
+   Celulares e tablets em pé.
+   ----------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 16px;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    form {
+        padding: 1.25rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: .75rem;
+    }
+
+    .filter-item {
+        min-width: 100%;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 560px;
+    }
+
+    th,
+    td {
+        padding: 10px 12px;
+        font-size: .85rem;
+    }
+
+    .table-thumbnail,
+    .no-image {
+        width: 48px;
+        height: 48px;
+    }
+
+    .col-foto,
+    .col-capa {
+        width: 68px;
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .btn-edit,
+    .btn-delete,
+    .btn-music,
+    .btn-youtube {
+        padding: .4rem .7rem;
+        font-size: .78rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}
